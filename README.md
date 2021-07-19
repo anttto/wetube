@@ -15,3 +15,16 @@
   > > 3. Nodemon 세팅 : @babel/node 설치 -> nodemon 설치 (Script 세팅 : "nodemon --exec babel-node -- index.js")
   >
   > morgan 추가 (log정보 미들웨어)
+- (5) src 폴더 생성 server.js 기본 세팅
+
+```
+import express from "express";
+const app = express();
+const PORT = 4000;
+
+app.get('/', (req, res) => {
+    res.send("Hello World");
+});
+
+app.listen(PORT, () => console.log(`Server listening on port : ${PORT}`));
+```
