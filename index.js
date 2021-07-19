@@ -1,1 +1,2 @@
-console.log("Hello NodeJS");
+import express from "express";
+// const express = require("express");
