@@ -28,3 +28,55 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => console.log(`Server listening on port : ${PORT}`));
 ```
+
+- (6) Router 설정
+  > Router 영역과 Controller 영역을 나눠서 관리
+
+```
+-기본 구조 예시-
+[server.js]
+import videoRouter from "./routers/videoRouter"
+app.use('/videos', videoRouter);
+---------------------
+[routers/videoRouter.js]
+import express from "express";
+import { watch } from "../controllers/videoController";
+const videoRouter = express.Router();
+videoRouter.get('/:id(\\d+)', watch);
+export default videoRouter;
+---------------------
+[controllers/videoController.js]
+export const watch = (req, res) => res.render("watch");
+```
+
+- (7)View엔진 : PUG (Jade) 적용
+
+```
+npm i pug
+app.set('view engine', 'pug');
+app.set('views', process.cwd() + '/src/views');
+```
+
+> javascript 사용 -> #{}
+
+```
+footer &copy; #{new Date().getFullYear()} Wetube
+```
+
+> extends - block 상속의 개념
+
+```
+[Base] (base.pug)
+block content
+---------------------
+[extend]
+extends base.pug
+block content
+    h1 Home!!
+```
+
+> partial (include개념)
+
+```
+include partials/footer.pug
+```
