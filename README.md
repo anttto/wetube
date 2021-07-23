@@ -47,6 +47,8 @@ export default videoRouter;
 ---------------------
 [controllers/videoController.js]
 export const watch = (req, res) => res.render("watch");
+
+URL - http://localhost/videos/1234
 ```
 
 - (7)View엔진 : PUG (Jade) 적용
