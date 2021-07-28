@@ -53,6 +53,9 @@ URL - http://localhost/videos/1234
 
 - (7)View엔진 : PUG (Jade) 적용
 
+> 뷰 앤진 선언 app.set('view engine', 'pug');
+> 뷰 폴더 연결 app.set('views', process.cwd() + '/src/views');
+
 ```
 npm i pug
 app.set('view engine', 'pug');
@@ -81,4 +84,40 @@ block content
 
 ```
 include partials/footer.pug
+```
+
+> 변수처리 가능 -> #{variable}
+
+```
+해당 변수는 render함수의 agument 를 이용함
+ex) res.render("pagename", {pageTitle:"Home"})
+pageTitle 변수값 선언 : {pageTitle:"Home"}
+```
+
+> Conditionals -> if, elfe if
+
+```
+ul
+  if fakeUser.loggedIn
+      li
+          a(href="/logout") Log out
+  else
+      li
+          a(href="/login") Login
+```
+
+> Iteration -> each
+
+```
+ul
+  each val in [1,2,3,4,5]
+  li=val
+```
+
+> Mixin -> 똑똑한 patial 개념으로 이해 (데이터를 받기 때문 )
+
+```
+ul
+  each val in [1,2,3,4,5]
+  li=val
 ```
