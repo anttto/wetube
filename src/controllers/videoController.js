@@ -2,7 +2,7 @@ import User from "../models/user"
 import Video from "../models/video"
 
 export const home = async (req, res) => {
-    const videos = await Video.find({});
+    const videos = await Video.find({}).sort({createAt:"desc"}).populate("owner");
     return res.render("home", {pageTitle:"Home", videos });
 };
 
@@ -77,7 +77,8 @@ export const postUpload = async (req, res) => {
 export const deleteVideo = async (req, res) => {
     const {id} = req.params;
     const {_id} = req.session.user;
-    const {video} = await Video.findById(id);
+    const video = await Video.findById(id);
+    console.log(video);
     if(!video){
         return res.render("404", {pageTitle: "Video not found."});
     }
