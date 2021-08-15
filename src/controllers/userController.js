@@ -189,7 +189,7 @@ export const postEdit = async (req, res) => {
         location
     }, {new:true});
     req.session.user = updatedUser;
-    return res.redirect("/users/edit");
+    return res.redirect(`/users/${userId._id}`);
 };
 
 export const getChangePassword = (req, res) => {

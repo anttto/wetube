@@ -9,7 +9,7 @@ form {
   }
 }
 
-input {
+input:not(input[type="range"]) {
   all: unset;
   padding: 15px 20px;
   border-radius: 5px;
@@ -29,7 +29,7 @@ input[type="submit"],
   border-radius: 5px;
   padding: 12px 20px;
   background-color: white;
-  color: rgba($color: $point, $alpha: 1);
+  color: rgba($color: $red, $alpha: 1);
   text-align: center;
   cursor: pointer;
   display: block;
