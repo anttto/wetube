@@ -5,7 +5,7 @@ module.exports = {
     entry: {
         main: "./src/client/js/main.js",
         videoPlayer: "./src/client/js/videoPlayer.js",
-        ui: "./src/client/js/ui.js",
+        recorder: "./src/client/js/recorder.js",
     },
     plugins: [new MiniCssExtractPlugin({
         filename: "css/styles.css",
