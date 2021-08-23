@@ -1,0 +1,62 @@
+const videoContainer = document.getElementById("videoContainer");
+const form = document.getElementById("commentForm");
+
+const deleteBtns = document.querySelectorAll(".delete__comment");
+// const delBtn = comment.getElementsbyC (".delete__comment");
+// const deleteBtn = comment.querySelector(".delete__comment");
+
+
+const addComment = (text, id) => {
+    const videoComments = document.querySelector(".video__comments ul");
+    const newComment = document.createElement("li");
+    newComment.className = "video__comment";
+    newComment.dataset.id = id;
+    const icon = document.createElement("i");
+    const span = document.createElement("span");
+    const deleteSpan = document.createElement("span");
+    span.innerText = ` ${text}`
+    deleteSpan.innerText = "Delete";
+    icon.className = "fas fa-comment";
+    deleteSpan.className = "delete__comment";
+    newComment.appendChild(icon);
+    newComment.appendChild(span);
+    newComment.appendChild(deleteSpan);
+    videoComments.prepend(newComment);
+}
+
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    const textarea = form.querySelector("textarea");
+    const text = textarea.value;
+    const videoId = videoContainer.dataset.id;
+    if (text === "") {
+        return;
+    }
+    const response = await fetch(`/api/videos/${videoId}/comment`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text }),
+    });
+    // console.log(newCommentId);
+    if (response.status === 201) {
+        const { newCommentId } = await response.json();
+        addComment(text, newCommentId);
+        textarea.value = "";
+    }
+}
+
+if (form) {
+    form.addEventListener("submit", handleSubmit);
+}
+
+
+const handleDelete = () => {
+    console.log("aaaa");
+}
+
+
+deleteBtns.forEach(deleteBtn => {
+    deleteBtn.addEventListener("click", handleDelete);
+})

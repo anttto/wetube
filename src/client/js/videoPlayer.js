@@ -27,15 +27,15 @@ const handlePlayClick = (e) => {
 };
 
 const handleKeyPause = (event) => {
-    const {keyCode} = event;
-    if(keyCode === 32) {
-        if (video.paused) {
-            video.play();
-        } else {
-            video.pause();
-        }
-        playBtnIcon.classList = video.paused ? "fas fa-play" : "fas fa-pause";
+  const { keyCode } = event;
+  if (keyCode === 32) {
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
     }
+    playBtnIcon.classList = video.paused ? "fas fa-play" : "fas fa-pause";
+  }
 }
 
 const handleMuteClick = (e) => {
@@ -113,7 +113,7 @@ const handleMouseLeave = () => {
 };
 
 const handleEnded = () => {
-  const {id} = videoContainer.dataset;
+  const { id } = videoContainer.dataset;
   fetch(`/api/videos/${id}/view`, {
     method: "POST",
   });
