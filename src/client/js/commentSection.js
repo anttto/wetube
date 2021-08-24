@@ -2,8 +2,6 @@ const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
 
 const deleteBtns = document.querySelectorAll(".delete__comment");
-// const delBtn = comment.getElementsbyC (".delete__comment");
-// const deleteBtn = comment.querySelector(".delete__comment");
 
 
 const addComment = (text, id) => {
@@ -52,8 +50,21 @@ if (form) {
 }
 
 
-const handleDelete = () => {
-    console.log("aaaa");
+const deleteComment = (delBtn, commentId) => {
+    const comment = delBtn.target.parentNode;
+    comment.classList.add(commentId);
+    comment.remove();
+}
+
+
+const handleDelete = async (delBtn) => {
+    const commentId = delBtn.target.parentNode.dataset.id;
+    const response = await fetch(`/api/videos/${commentId}/delete`, {
+        method: "DELETE",
+    });
+    if (response.status === 201) {
+        deleteComment(delBtn, commentId);
+    }
 }
 
 
