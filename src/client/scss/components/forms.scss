@@ -2,11 +2,27 @@ form {
   max-width: 420px;
   margin: 0 auto;
   &:not(.search__form) {
-    padding: 30px;
-    background-color: rgba($color: $bg, $alpha: 0.7);
+    padding: 20px 20px 48px;
     border-radius: 10px;
-    border: 1px solid rgba($color: #fff, $alpha: 0.1);
+    border: 1px solid #e2e2e2;
   }
+}
+.video__comment-form {
+  width:100%;
+  max-width:100%;
+  button {
+    float:right;
+    margin-top:10px;
+  }
+}
+textarea {
+  border:0;
+  width:100%;
+  max-width:100%;
+  min-width:100%;
+  max-height:100px;
+  min-height:100px;
+  border-bottom:1px solid #e2e2e2;
 }
 
 input:not(input[type="range"]),
@@ -14,14 +30,13 @@ input[type="submit"] {
   all: unset;
   padding: 15px 20px;
   border-radius: 5px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background-color: black;
+  border: 1px solid #dadada;
   margin-bottom: 5px;
   font-size: 16px;
-  color: white;
+  color: #222;
   width: 90%;
   &::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color: #999;
   }
 }
 
@@ -29,8 +44,8 @@ input[type="submit"],
 .social__btn {
   border-radius: 5px;
   padding: 12px 20px;
-  background-color: white !important;
-  color: rgba($color: $red, $alpha: 1) !important;
+  background-color: $point !important;
+  color: #fff !important;
   text-align: center !important;
   cursor: pointer;
   display: block;

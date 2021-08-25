@@ -24,26 +24,35 @@ block content
         p.video__title=video.title
         small.video__owner Uploaded by 
             a(href=`/users/${video.owner._id}`)=video.owner.name
-        
         small.video__createdAt=new Date(video.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
-        if String(video.owner._id) === String(loggedInUser._id)
-            a(href=`${video.id}/edit`) Edit Video &rarr;
-            br
-            a(href=`${video.id}/delete`) Delete Video &rarr;
-
+    br
+    if String(video.owner._id) === String(loggedInUser._id)
+        div.btns__wrap
+            a(href=`${video.id}/edit`).btn.btn__edit__delete
+                i.fas.fa-edit 
+                |  Edit
+            a(href=`${video.id}/delete`).btn.btn__edit__delete
+                i.fas.fa-eraser
+                |  Delete
+    br
     if loggedIn
         div.video__add-comments
             form.video__comment-form#commentForm
                 textarea(cols="30", rows="10", placeholder="Write a nice commment...")
-                button Add Comment
+                button.btn 
+                    | Add Comment &nbsp;
+                    i.fas.fa-check-circle
     div.video__comments
         ul 
             each comment in video.comments.reverse()
                 li.video__comment(data-id=comment.id)
-                    i.fas.fa-comment
+                    i.far.fa-comment-dots
+                    |  
                     span.comment__text #{comment.text}
                     if String(comment.owner) === String(loggedInUser._id)
-                        span.delete__comment Delete
+                        span.delete__comment 
+                            i.fas.fa-eraser
+                            |  Delete
 block scripts
     script(src="/static/js/videoPlayer.js") 
     script(src="/static/js/commentSection.js") 

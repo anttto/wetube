@@ -1,11 +1,20 @@
 header {
-  padding: 10px 25px;
+  padding: 20px 0;
+  width:1200px;
+  margin:0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   .header__logo {
-    color: #f00;
+    color: $point;
     font-size: 30px;
+    display:flex;
+    align-items:center;
+    .header__title {
+      font-size:15px;
+      font-weight:bold;
+      padding-left:5px;
+    }
   }
   ul {
     display: flex;
@@ -22,8 +31,7 @@ header {
     }
   }
   .header__btn {
-    background-color: #fff;
-    color: $bg;
+    color: $point;
     padding: 5px 10px;
     border-radius: 5px;
   }

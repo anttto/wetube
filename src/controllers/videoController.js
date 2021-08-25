@@ -15,7 +15,6 @@ export const watch = async (req, res) => {
     if (!video) {
         return res.render("404", { pageTitle: "Video not found." });
     }
-    console.log(video);
     return res.render("watch", { pageTitle: video.title, video });
 }
 
@@ -83,7 +82,6 @@ export const deleteVideo = async (req, res) => {
     const { id } = req.params;
     const { _id } = req.session.user;
     const video = await Video.findById(id);
-    console.log(video);
     if (!video) {
         return res.render("404", { pageTitle: "Video not found." });
     }

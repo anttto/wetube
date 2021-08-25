@@ -132,7 +132,6 @@ export const finishGithubLogin = async (req, res) => {
         }
         req.session.loggedIn = true;
         req.session.user = user;
-        console.log(user.avatarUrl);
         return res.redirect("/");
     } else {
         return res.redirect("/login");
@@ -182,7 +181,6 @@ export const postEdit = async (req, res) => {
             });
         }
     }
-    // console.log(file);
     const updatedUser = await User.findByIdAndUpdate(_id, {
         avatarUrl: file ? file.path : avatarUrl,
         name,
