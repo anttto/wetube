@@ -82,7 +82,7 @@ main {
   animation: goAway .5s ease-in-out forwards;
   animation-delay: 2s;
   &.error {
-    background-color:#f00;
+    background-color:rgb(221, 41, 41);
     color:#fff;
   }
   &.info {
