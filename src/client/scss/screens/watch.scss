@@ -2,6 +2,8 @@
     margin-top: 40px;
     display: flex;
     flex-direction: column;
+    padding-bottom: 80px;
+    border-bottom:1px solid #d2d2d2;
     .video__title {
       font-size: 26px;
       margin-bottom:15px;
@@ -34,15 +36,15 @@
     flex-direction: column;
     max-width:1200px;
     width: 100%;
-    margin:80px auto 0;
+    margin:30px auto 0;
     .video__comment {
       position:relative;
       background-color: white;
       border-bottom:1px solid #d2d2d2;
       color:black;
-      padding:15px 20px;
+      padding:15px 0px 5px;
       .commentOwner {
-        color:#067766;
+        color:#09af96;
         font-weight:bold;
       }
       .fas { 
@@ -58,11 +60,15 @@
         margin-left:5px;
         padding:6px 10px;
         border-radius:20px;
-        background-color:#077767;
+        background-color:#8fd2c8;
         color:#fff;
         font-size:11px;
         letter-spacing:0;
         cursor:pointer;
+        transition:all .8s;
+      }
+      .delete__comment:hover {
+        background-color:#07bfa5;
       }
     }
   }

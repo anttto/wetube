@@ -33,20 +33,24 @@ block content
         div.btns__wrap
             a(href=`${video.id}/edit`).btn.btn__edit__delete
                 i.fas.fa-edit 
-                |  Edit
+                |  수정
             a(href=`${video.id}/delete`).btn.btn__edit__delete
                 i.fas.fa-eraser
-                |  Delete
+                |  삭제
     br
     if loggedIn
         div.video__add-comments
             form.video__comment-form#commentForm
                 textarea(cols="30", rows="10", placeholder="Write a nice commment...")
                 button.btn 
-                    | Add Comment &nbsp;
+                    | 댓글 쓰기 &nbsp;
                     i.fas.fa-check-circle
     div.video__comments
-        h2(style=`font-weight:bold;`) Comments
+        if noComments
+            h2(style=`color:#bbb;`) No Comments
+        else
+            h2(style=`font-weight:bold;`) Comments
+        br
         ul 
             each comment in video.comments.reverse()
                 li.video__comment(data-id=comment.id)  
@@ -56,7 +60,7 @@ block content
                     if String(comment.owner) === String(loggedInUser._id)
                         span.delete__comment 
                             i.fas.fa-eraser
-                            |  Delete
+                            | 삭제
 block scripts
     script(src="/static/js/videoPlayer.js") 
     script(src="/static/js/commentSection.js") 
