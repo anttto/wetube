@@ -14,7 +14,7 @@ export const postJoin = async (req, res) => {
     if (password !== password2) {
         return res.status(400).render("join", {
             pageTitle,
-            errorMessage: "Password confirmation does not match.",
+            errorMessage: "패스워드가 일치하지 않습니다.",
         });
     }
 
@@ -22,7 +22,7 @@ export const postJoin = async (req, res) => {
     if (exists) {
         return res.status(400).render("join", {
             pageTitle,
-            errorMessage: "This username/email is already taken."
+            errorMessage: "같은 아이디 또는 이메일이 존재합니다."
         });
     }
 
@@ -171,7 +171,7 @@ export const postEdit = async (req, res) => {
         if (findUsername) {
             return res.status(400).render("edit-profile", {
                 pageTitle: "Edit Profile",
-                errorMessage: "This username is already taken."
+                errorMessage: "이미 존재하는 아이디 입니다."
             });
         }
     }
@@ -179,7 +179,7 @@ export const postEdit = async (req, res) => {
         if (findEmail) {
             return res.status(400).render("edit-profile", {
                 pageTitle: "Edit Profile",
-                errorMessage: "This email is already taken."
+                errorMessage: "이미 존재하는 이메일 입니다."
             });
         }
     }

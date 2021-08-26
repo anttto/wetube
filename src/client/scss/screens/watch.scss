@@ -1,25 +1,30 @@
 .video__data {
-    margin-top: 40px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
     border-bottom:1px solid #d2d2d2;
     .video__title {
       font-size: 26px;
       margin-bottom:15px;
     }
     .video__createdAt {
-      font-size: 12px;
+      font-size: 13px;
     }
     .video__owner {
       margin-bottom: 10px;
-      font-size: 14px;
+      font-size: 15px;
       a {
         color: cornflowerblue;
         text-decoration: underline;
         font-weight:bold;
       }
     } 
+    .desc {
+      margin-top:40px;
+      font-size:16px;
+      line-height:1.5em;
+    }
   }
 
   .btns__wrap {

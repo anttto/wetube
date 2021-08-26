@@ -5,18 +5,22 @@ block content
         div.upload__video
             h2 SELF Record preview
             video#preview
-            button#actionBtn.social__btn Start Recording (5s)
+            button#actionBtn.social__btn Recording (5s)
         if errorMessage
             span=errorMessage
         form(method="POST", enctype="multipart/form-data")
-            label(for="video") Video File
+            label(for="video") 영상 파일
             input(type="file", accept="video/*", required, id="video", name="video")
-            label(for="thumb") Thumbnail File
+            br
+            br
+            label(for="thumb") 썸네일 이미지
             input(type="file", accept="image/*", required, id="thumb", name="thumb")
-            input(placeholder="Title", required, type="text", name="title", maxlength=80)
-            input(placeholder="Description", required, type="text", name="description", minlength=20)
-            input(placeholder="Hashtags, separated by comma.", required, type="text", name="hashtags")
-            input(type="submit", value="Upload Video")
+            br
+            br
+            input(placeholder="영상의 제목을 입력하세요.", required, type="text", name="title", maxlength=80)
+            input(placeholder="영상의 내용을 입력하세요.", required, type="text", name="description", minlength=20)
+            input(placeholder="해시태그를 입력하세요. ex) 영화, 원빈, 스릴러", required, type="text", name="hashtags")
+            input(type="submit", value="영상 올리기")
 
 block scripts
     script(src="/static/js/recorder.js") 

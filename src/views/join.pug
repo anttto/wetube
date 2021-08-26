@@ -4,18 +4,22 @@ block content
     if errorMessage
         span=errorMessage
     form(method="POST", enctype="multipart/form-data")
-        label(for="avatar") Avatar
+        input(placeholder="닉네임을 입력해 주세요.", name="name", type="text", required)
+        input(placeholder="이메일을 입력해 주세요.", name="email", type="email", required)
+        input(placeholder="아이디를 입력해 주세요.", name="username", type="text", required)
+        input(placeholder="패스워드를 입력해 주세요.", name="password", type="password", required)
+        input(placeholder="동일한 패스워드를 입력해 주세요.", name="password2", type="password", required)
+        br
+        br
+        label(for="avatar") 대표 이미지를 업로드 하세요.
         input(type="file", id="avatar", name="avatar" accept="image/*")
-        input(placeholder="Name", name="name", type="text", required)
-        input(placeholder="Email", name="email", type="email", required)
-        input(placeholder="Username", name="username", type="text", required)
-        input(placeholder="Password", name="password", type="password", required)
-        input(placeholder="Confirm Password", name="password2", type="password", required)
-        input(placeholder="Location", name="location", typne="text", required)
-        input(type="submit", value="Join")
+        br
+        br
+        //- input(placeholder="Location", name="location", typne="text", required)
+        input(type="submit", value="회원가입")
         include partials/social-login
     div.auth-switch
-        span Already have an account? 
-        a(href="/login") Log in now &rarr;
+        span 이미 계정이 있으신가요?&nbsp;&nbsp;
+        a(href="/login") 로그인 &rarr;
 
     
