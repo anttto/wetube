@@ -42,14 +42,15 @@ block content
                 button.btn 
                     | Add Comment &nbsp;
                     i.fas.fa-check-circle
-    
-    h2 Comments
     div.video__comments
+        h2(style=`font-weight:bold;`) Comments
         ul 
             each comment in video.comments.reverse()
                 li.video__comment(data-id=comment.id)
                     i.far.fa-comment-dots
                     |  
+                    span=loggedInUser.username
+                    |  :  
                     span.comment__text #{comment.text}
                     if String(comment.owner) === String(loggedInUser._id)
                         span.delete__comment 
