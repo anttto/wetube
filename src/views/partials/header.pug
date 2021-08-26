@@ -1,7 +1,7 @@
 header
     a(href="/").header__logo
         i.fab.fa-youtube
-        h1.header__title ANTOVERO TUBE
+        h1.header__title ANTOVERO TUBE 2
     nav 
         ul 
             li 
@@ -19,9 +19,9 @@ header
                         if loggedInUser.avatarUrl === ""
                             span 😀 
                         else 
-                            if (loggedInUser.socialOnly)
+                            if loggedInUser.socialOnly
                                 img.header__avatar(src=loggedInUser.avatarUrl)
-                            if (!loggedInUser.socialOnly)
+                            else
                                 img.header__avatar(src="/" + loggedInUser.avatarUrl)
             else 
                 li 
