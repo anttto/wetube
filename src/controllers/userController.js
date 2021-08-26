@@ -9,6 +9,7 @@ export const postJoin = async (req, res) => {
     const { name, email, username, password, password2, location } = req.body;
     const { file } = req;
     const pageTitle = "Join";
+    const isHeroku = process.env.NODE_ENV === "production";
 
     if (password !== password2) {
         return res.status(400).render("join", {
@@ -27,7 +28,8 @@ export const postJoin = async (req, res) => {
 
     try {
         await User.create({
-            name, email, username, password, location, avatarUrl: file ? file.path : "",
+            name, email, username, password, location,
+            avatarUrl: file ? (isHeroku ? file.location : file.path) : "",
         });
         return res.redirect("/login");
     } catch (error) {

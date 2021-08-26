@@ -9,16 +9,16 @@ const addComment = (text, id) => {
     const newComment = document.createElement("li");
     newComment.className = "video__comment";
     newComment.dataset.id = id;
-    const icon = document.createElement("i");
+    // const icon = document.createElement("i");
     const span = document.createElement("span");
-    const deleteSpan = document.createElement("span");
+    // const deleteSpan = document.createElement("span");
     span.innerText = ` ${text}`
-    deleteSpan.innerText = "Delete";
-    icon.className = "far fa-comment-dots";
-    deleteSpan.className = "delete__comment";
-    newComment.appendChild(icon);
+    // deleteSpan.innerText = "Delete";
+    // icon.className = "far fa-comment-dots";
+    // deleteSpan.className = "delete__comment";
+    // newComment.appendChild(icon);
     newComment.appendChild(span);
-    newComment.appendChild(deleteSpan);
+    // newComment.appendChild(deleteSpan);
     videoComments.prepend(newComment);
 }
 
@@ -40,8 +40,9 @@ const handleSubmit = async (e) => {
     // console.log(newCommentId);
     if (response.status === 201) {
         const { newCommentId } = await response.json();
-        addComment(text, newCommentId);
+        // addComment(text, newCommentId);
         textarea.value = "";
+        location.reload();
     }
 }
 
@@ -49,13 +50,11 @@ if (form) {
     form.addEventListener("submit", handleSubmit);
 }
 
-
 const deleteComment = (delBtn, commentId) => {
     const comment = delBtn.target.parentNode;
     comment.classList.add(commentId);
     comment.remove();
 }
-
 
 const handleDelete = async (delBtn) => {
     const commentId = delBtn.target.parentNode.dataset.id;
