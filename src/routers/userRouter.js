@@ -17,7 +17,7 @@ userRouter
     .route('/edit')
     .all(protectorMiddleware)
     .get(getEdit)
-    .post(avatarUpload.single("avatar"), s3DeleteAvatarMiddleware, postEdit);
+    .post(s3DeleteAvatarMiddleware, avatarUpload.single("avatar"), postEdit);
 userRouter.route('/change-password').all(protectorMiddleware).get(getChangePassword).post(postChangePassword);
 userRouter.get('/github/start', publicOnlyMiddleware, startGithubLogin);
 userRouter.get('/github/finish', publicOnlyMiddleware, finishGithubLogin);
