@@ -1,4 +1,5 @@
 import User from "../models/user";
+import Comment from "../models/comment";
 import fetch from "node-fetch";
 import bcrypt from "bcrypt";
 
@@ -160,18 +161,18 @@ export const postEdit = async (req, res) => {
         session: {
             user: { _id, avatarUrl }
         },
-        body: { name, email, username, location },
+        body: { name, email },
         file,
     } = req;
-    const userId = await User.findById({ _id });
-    const findUsername = await User.exists({ username });
+    const userId = await User.findById({ _id }).populate("comments");
+    const findname = await User.exists({ name });
     const findEmail = await User.exists({ email });
 
-    if (userId.username != username) {
-        if (findUsername) {
+    if (userId.name != name) {
+        if (findname) {
             return res.status(400).render("edit-profile", {
                 pageTitle: "Edit Profile",
-                errorMessage: "이미 존재하는 아이디 입니다."
+                errorMessage: "이미 존재하는 닉네임 입니다."
             });
         }
     }
@@ -184,16 +185,18 @@ export const postEdit = async (req, res) => {
         }
     }
 
-    const isHeroku = process.env.NODE_ENV === "production";
+    await Comment.updateMany({ owner: _id }, { $set: { name: name } });
 
+    const isHeroku = process.env.NODE_ENV === "production";
     const updatedUser = await User.findByIdAndUpdate(_id, {
         avatarUrl: file ? (isHeroku ? file.location : file.path) : avatarUrl,
         name,
         email,
-        username,
-        location
+        username: userId.username,
     }, { new: true });
+
     req.session.user = updatedUser;
+
     return res.redirect(`/users/${userId._id}`);
 };
 

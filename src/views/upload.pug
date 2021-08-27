@@ -3,9 +3,9 @@ extends base.pug
 block content
     div.upload__container
         div.upload__video
-            h2 SELF Record preview
+            h2 셀프 녹화 미리보기
             video#preview
-            button#actionBtn.social__btn Recording (5s)
+            button#actionBtn.social__btn 녹화 (5초 제한)
         if errorMessage
             span=errorMessage
         form(method="POST", enctype="multipart/form-data")
