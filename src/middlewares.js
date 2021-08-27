@@ -72,3 +72,24 @@ export const sharedbufferMiddleware = (req, res, next) => {
     next();
 };
 
+export const s3DeleteAvatarMiddleware = (req, res, next) => {
+    if (!req.file) {
+        console.log("aaaa");
+        return next();
+    }
+    s3.deleteObject(
+        {
+            Bucket: `antoverotube/images`,
+            Key: req.session.user.avatarUrl.split('/')[2],
+        },
+        (err, data) => {
+            if (err) {
+                throw err;
+            }
+            console.log(`s3 deleteObject`, data);
+        }
+    );
+    console.log("success");
+    next();
+};
+

@@ -49,14 +49,14 @@ export const postLogin = async (req, res) => {
     if (!user) {
         return res.status(400).render("login", {
             pageTitle,
-            errorMessage: "An account with this username dose not exists."
+            errorMessage: "아이디가 존재하지 않습니다."
         })
     }
     const ok = await bcrypt.compare(password, user.password);
     if (!ok) {
         return res.status(400).render("login", {
             pageTitle,
-            errorMessage: "Wrong Password."
+            errorMessage: "잘못된 패스워드 입니다."
         })
     }
     req.session.loggedIn = true;
