@@ -5,7 +5,7 @@
 .video-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
+  gap: 20px 30px;
   .video-mixin:nth-child(1) {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -15,6 +15,16 @@
       height:405px;
     }
   }
+  .video-mixin:nth-child(5) {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    .video-thumb__wrap {
+      height:405px;
+    }
+  }
+  
 }
 .auth-switch {
   text-align: center;
