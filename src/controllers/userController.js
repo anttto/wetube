@@ -6,6 +6,10 @@ import bcrypt from "bcrypt";
 export const getJoin = (req, res) =>
     res.render("join", { pageTitle: "Join" });
 
+export const about = (req, res) => {
+    return res.render("about", { pageTitle: "About" })
+}
+
 export const postJoin = async (req, res) => {
     const { name, email, username, password, password2, location } = req.body;
     const { file } = req;

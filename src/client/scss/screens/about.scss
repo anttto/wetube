@@ -1,0 +1,16 @@
+.about__wrap {
+    padding:150px 0;
+    text-align: center;
+    line-height:1.5em;
+    h2 {
+        font-size:25px;
+        margin-bottom:30px;
+    }
+    p {
+        font-size:16px;
+        margin-bottom:10px;
+        a {
+            color:$point;
+        }
+    }
+}
