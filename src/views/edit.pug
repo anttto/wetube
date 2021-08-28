@@ -4,6 +4,7 @@ block content
     h4 Update Video
     form(method="POST")
         input(name="title", placeholder="Video Title" value=video.title, required )
-        input(name="description", placeholder="Description", value=video.description, required, type="text", minlength=20)
+        textarea.descArea(cols="30", rows="10", placeholder="영상의 내용을 입력하세요.", required, name="description", minlength=10)=video.description
+        //- input(name="description", placeholder="Description", value=video.description, required, type="text", minlength=20)
         input(name="hashtags", placeholder="Hashtags", value=video.hashtags.join(), required, type="text")
         input(value="Save" type="submit")
