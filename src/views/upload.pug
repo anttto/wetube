@@ -18,7 +18,7 @@ block content
             br
             br
             input(placeholder="영상의 제목을 입력하세요.", required, type="text", name="title", maxlength=80)
-            textarea(cols="30", rows="10", placeholder="영상의 내용을 입력하세요.", required, type="text", name="description", minlength=10)
+            textarea.descArea(cols="30", rows="10", placeholder="영상의 내용을 입력하세요.", required, type="text", name="description", minlength=10)
             //- input(placeholder="영상의 내용을 입력하세요.", required, type="text", name="description", minlength=20)
             input(placeholder="해시태그를 입력하세요. ex) 영화, 원빈, 스릴러", required, type="text", name="hashtags")
             input(type="submit", value="영상 올리기")
