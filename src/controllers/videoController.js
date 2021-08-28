@@ -9,9 +9,7 @@ export const home = async (req, res) => {
 
 export const watch = async (req, res) => {
     const id = req.params.id;
-    const { _id } = req.session.user;
     const video = await Video.findById(id).populate("owner").populate("comments");
-    const user = await User.findById(_id).populate("comments");
     const noComments = String(video.comments) == [];
     if (!video) {
         return res.render("404", { pageTitle: "Video not found." });
