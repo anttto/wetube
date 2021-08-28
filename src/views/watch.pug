@@ -28,7 +28,8 @@ block content
         small.video__owner Uploaded by 
             a(href=`/users/${video.owner._id}`)=video.owner.name
         small.video__createdAt=new Date(video.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
-        p.desc=video.description
+        pre
+            p.desc=video.description
     br
     if String(video.owner._id) === String(loggedInUser._id)
         div.btns__wrap
