@@ -5,7 +5,16 @@
 .video-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 50px 30px;
+  gap: 40px 30px;
+  .video-mixin:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    .video-thumb__wrap {
+      height:406px;
+    }
+  }
 }
 .auth-switch {
   text-align: center;
