@@ -6,7 +6,7 @@ html(lang="ko")
         title #{pageTitle} | #{siteName}
         link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
         link(rel="stylesheet" href="/static/css/styles.css")
-    body
+    body(class=`${className}`)
         if messages.error
             +message("error", messages.error)
         if messages.info

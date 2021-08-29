@@ -7,7 +7,7 @@ export const getJoin = (req, res) =>
     res.render("join", { pageTitle: "Join" });
 
 export const about = (req, res) => {
-    return res.render("about", { pageTitle: "About" })
+    return res.render("about", { pageTitle: "About", className: "about" });
 }
 
 export const postJoin = async (req, res) => {
