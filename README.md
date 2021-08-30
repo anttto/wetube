@@ -3,9 +3,9 @@
 > Back-end : Node.js(Express) / MongoDB(mongoose)   
 > all : Babel / Webpack   
    
-배포 관련 : Heroku / aws-s3 / mongodb atlas
-
-
+- 배포 관련 : Heroku / aws-s3 / mongodb atlas
+- 프로젝트의 목적 : 프론트엔드 개발의 단단한 기초를 다지기 위해, 웹의 전체적인 데이터 흐름을 경험하고 다루기 위함에 있다.
+   
 ------------------------------------------------------------
 ### [ANTOVERO TUBE](https://antovero-tube.herokuapp.com/)
 ------------------------------------------------------------
