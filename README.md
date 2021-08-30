@@ -1,6 +1,6 @@
 # Youtube 대략적 기능.. Clone - 도저언!
 > Front-end : Pug / Scss / Vanilla-js   
-> Beck-end : Node.js(Express) / MongoDB(mongoose)   
+> Back-end : Node.js(Express) / MongoDB(mongoose)   
 > all : Babel / Webpack   
    
 배포 관련 : Heroku / aws-s3 / mongodb atlas
