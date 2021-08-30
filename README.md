@@ -10,12 +10,10 @@
 #### [ANTOVERO TUBE](https://antovero-tube.herokuapp.com/)
 ------------------------------------------------------------
    
-   
-## 1. Settings
 
-#### (1) NodeJs 설치
-#### (2) GIT 설정 add Repository - git init - remote setting
-#### (3) NPM 셋팅 - npm init - package.jcon 생성
+#### 1. NodeJs 설치 
+#### 2. GIT 설정 add Repository - git init - remote setting 
+#### 3. NPM 셋팅 - npm init - package.jcon 생성 
   > package.json & 실행js 파일만을 관리 : node_modules 폴더의 의존성
 #### (4) 각종 node package 설치
   > Express 설치
