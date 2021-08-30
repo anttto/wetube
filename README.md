@@ -155,3 +155,34 @@ db.once("open", handleOpen);
 ```
 
 ##### Mongoose를 이용한 Schema 예시
+```
+import bcrypt from "bcrypt";   //password 암호화(해싱)
+import mongoose from "mongoose";    //import 몽구스
+
+//유저 스키마
+const userSchema = new mongoose.Schema({
+    email: { type: String, required: true, unique: true },  // 타입을 지정
+    avatarUrl: { type: String, default: "" },
+    socialOnly: { type: Boolean, default: false },
+    username: { type: String, required: true, unique: true },
+    password: { type: String },
+    name: { type: String, required: true },
+    comments: [
+        { type: mongoose.Schema.Types.ObjectId, ref: "Comment" },  //댓글의 경우에는 복수가 생성될 수 있기에 배열로 처리 
+    ],
+    videos: [
+        { type: mongoose.Schema.Types.ObjectId, ref: "Video" },   //업로드 비디오도 당연히 복수 가능성
+    ]
+})
+
+// 패스워드의 경우에는 데이터를 저장하기 전에 Middleware의 개념으로 해싱처리를 진행함. (bcrypt)
+userSchema.pre('save', async function () {
+    if (this.isModified("password")) {
+        this.password = await bcrypt.hash(this.password, 5);
+    }
+})
+
+//User Model로 지정 & export
+const User = mongoose.model("User", userSchema);
+export default User;
+```
