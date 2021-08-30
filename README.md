@@ -2,9 +2,10 @@
 > Front-end : Pug / Scss / Vanilla-js   
 > Back-end : Node.js(Express) / MongoDB(mongoose)   
 > all : Babel / Webpack   
-   
-- 배포 관련 : Heroku / aws-s3 / mongodb atlas
+> 배포 : Heroku / aws-s3 / mongodb atlas
+
 - 프로젝트의 목적 : 프론트엔드 개발의 단단한 기초를 다지기 위해, 웹의 전체적인 데이터 흐름을 경험하고 다루기 위함에 있다.
+- 구현 기능 : 기본적인 GET, POST 통신 / 회원생성/로그인 / 프로필수정 / 비디오업로드 / 비디오수정 / 비디오삭제 / 스트리밍 녹화 기능
    
 ------------------------------------------------------------
 ### [ANTOVERO TUBE](https://antovero-tube.herokuapp.com/)
