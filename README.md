@@ -136,7 +136,7 @@ ul
 - 강력한 밸리데이션을 기본적으로 제공해줌 (꿀)
 
 
-##### db.js Settings
+##### 1) db.js Settings
 ```
 import mongoose from "mongoose";
 
@@ -154,7 +154,7 @@ db.on("error", (error) => console.log("DB Error", error));
 db.once("open", handleOpen);
 ```
 
-##### Mongoose를 이용한 Schema 예시
+##### 2) Mongoose를 이용한 Schema 예시
 ```
 import bcrypt from "bcrypt";   //password 암호화(해싱)
 import mongoose from "mongoose";    //import 몽구스
