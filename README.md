@@ -15,7 +15,7 @@
   > > 3. Nodemon 세팅 : @babel/node 설치 -> nodemon 설치 (Script 세팅 : "nodemon --exec babel-node -- index.js")
   >
   > morgan 추가 (log정보 미들웨어)
-#### (5) src 폴더 생성 server.js 기본 세팅
+#### (5) src 폴더(작업폴더) 생성 server.js 기본 세팅
 
 ```
 import express from "express";
@@ -53,7 +53,10 @@ URL - http://localhost/videos/1234
 
 #### (7)View엔진 : PUG (Jade) 적용
 
-> 뷰 앤진 선언 app.set('view engine', 'pug');
+> 쉽게 말해 HTML 템플릿 언어 - 후에는 리액트, 뷰 교체 후 재작업 계획중..
+
+- 기본 세팅
+> 뷰 엔진 선언 app.set('view engine', 'pug');
 > 뷰 폴더 연결 app.set('views', process.cwd() + '/src/views');
 
 ```
@@ -121,3 +124,34 @@ ul
   each val in [1,2,3,4,5]
   li=val
 ```
+
+
+#### (8)DataBase : MONGODB (feat.MONGOOSE)
+
+> [MONGODB](https://www.mongodb.com/) 
+- 문서지향적 데이터베이스. 대표 NoSQL 중 한개. 유동적인 스키마를 가질수 있음.
+
+> [MONGOOSE](https://www.npmjs.com/package/mongoose) 
+- Node.Js 환경에서 Mongdb 를 이용하기 수월하게 도와주는 모델링 도구
+- 강력한 밸리데이션을 기본적으로 제공해줌 (꿀)
+
+
+##### db.js Settings
+```
+import mongoose from "mongoose";
+
+mongoose.connect(process.env.DB_URL, { 
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+ });
+
+const db = mongoose.connection;
+
+const handleOpen = () => console.log("✅ Connected to DB");
+db.on("error", (error) => console.log("DB Error", error));
+db.once("open", handleOpen);
+```
+
+##### Mongoose를 이용한 Schema 예시
