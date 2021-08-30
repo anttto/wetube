@@ -1,4 +1,4 @@
-## Youtube 대략적 기능.. Clone - 도저언!
+## Youtube 대략적 기능.. Clone - 도저언! (2021.05.20 ~ 2021.08.30)
 > Front-end : Pug / Scss / Vanilla-js   
 > Back-end : Node.js(Express) / MongoDB(mongoose)   
 > all : Babel / Webpack   
